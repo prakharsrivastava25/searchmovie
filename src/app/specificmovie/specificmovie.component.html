@@ -1,0 +1,27 @@
+<!-- <app-specificmovie> -->
+  <div *ngIf='flag===1' fxLayout="column">
+    <h2 class="title">Specific Movie Details</h2>
+    <hr/>
+    <br>
+    <br>
+    <md-card-content>
+      <md-list>
+        <md-list-item>
+          <md-card>
+            <md-card-content>
+              <img [src]="'http://image.tmdb.org/t/p/w300'+movie.poster_path" />
+              <p md-line>Tile: {{movie.original_title}}</p>
+              <p md-line>Budget: {{movie.budget}}</p>
+              <p md-line>Genres:</p>
+              <ul *ngFor='let genre of movie.genres'>
+                <li>{{genre.name}}</li>
+              </ul>
+              <p md-line>Votes: {{movie.vote_count}}</p>
+              <p md-line>Status: {{movie.status}}</p>
+            </md-card-content>
+          </md-card>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </div>
+<!-- </app-specificmovie> -->
