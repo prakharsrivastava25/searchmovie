@@ -8,9 +8,9 @@ export class MoviesService {
 
     constructor(private http: Http) { };
 
-    getMovies (movie) {
+    getMovies (movie,pager) {
     		console.log("movie name received in movies.service.ts is",movie);
-        const url = 'https://api.themoviedb.org/3/search/movie?api_key=ecdf484e477ffdadf385fb7ae282d079&language=en-US&query='+movie+'&page=1';
+        const url = 'https://api.themoviedb.org/3/search/movie?api_key=ecdf484e477ffdadf385fb7ae282d079&language=en-US&query='+movie+'&page='+pager;
         console.log("URL is ",url);
         return this.http.get(url).map(res => res.json());
     }

@@ -11,15 +11,28 @@ import { Route, Router} from '@angular/router';
 export class SearchComponent {
 	arr=[];
 	arr2=[];
+	pager: number;
+	moviename: string;
+	moviedata: any;
+	total_pages:number;
 		constructor(private obj:MoviesService,private route:Router/*,private views:ViewSearch*/){}
+		
 		searchmovie(movie){
+			this.pager = 1;
+			this.moviename=movie;
 			console.log('movie name from search component', movie);
-			this.obj.getMovies(movie).subscribe((data)=>{this.arr=[];
+			this.obj.getMovies(movie,this.pager).subscribe((data)=>{this.arr=[];
 				console.log("data.results length is",data.results.length);
+				console.log("data.results is",data.results);
+				console.log("data.total_pages is",data.total_pages);
+				this.total_pages=data.total_pages;
+				data.results.forEach((d)=>{
+					this.arr.push(d);
+				})
 				this.arr.push(data.results);
 			//	this.views.movieloaded();
-			console.log("array length",this.arr.length);
-				console.log("array",this.arr[0]);
+			//console.log("array length",this.arr.length);
+				//console.log("array",this.arr[0]);
 //				this.route.navigate(['view']);//pathview
 			}
 
@@ -46,5 +59,18 @@ export class SearchComponent {
        this.route.navigate([`search/${movieid}`]);
 
    }
+   onScroll() {
+   	if(this.pager <= this.total_pages){
+        		console.log("from onscroll",this.moviename)
+        		/*this.arr=[];*/
+            return this.obj.getMovies(this.moviename, ++this.pager).subscribe(data => {
+                    /*this.arr.push(data.results);*/
+                    data.results.forEach((d)=>{this.arr.push(d)})
+                
+            });
+          }
+        
+
+    }
 		
 	}

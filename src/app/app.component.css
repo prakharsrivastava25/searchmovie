@@ -2,6 +2,9 @@ nav {
     position: absolute;
     right: 50px;
 }
+a{
+	color: orange;
+}
 #main
 {
 	background-color: #673AB7;

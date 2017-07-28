@@ -5,10 +5,10 @@ import { HttpModule,JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
-// import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MoviesService } from './movies.service';
 import { RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
+import { DashboardComponent } from './dashboardcomponent/dashboard.component';
 import { SearchComponent } from './searchcomponent/search.component';
 import { SpecificMovieComponent } from './selectedmovie.component';
 //import {ViewSearch} from './viewsearch.component';
@@ -26,6 +26,7 @@ import { SpecificmovieComponent } from './specificmovie/specificmovie.component'
     FormsModule,
     HttpModule,
     JsonpModule,
+    InfiniteScrollModule,
     MaterialModule,
     FlexLayoutModule,
  //   InfiniteScrollModule,
