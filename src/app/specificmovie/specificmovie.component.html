@@ -12,6 +12,7 @@
           </ul>
           <p md-line>Votes: {{movie.vote_count}}</p>
           <p md-line>Status: {{movie.status}}</p>
+          <button md-raised-button (click)="similarmovies(movie.id)">Similar Movies</button>
         </md-card-content>
       </md-card>
     </div>
