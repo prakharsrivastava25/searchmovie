@@ -10,16 +10,17 @@ import { MoviesService } from './movies.service';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboardcomponent/dashboard.component';
 import { SearchComponent } from './searchcomponent/search.component';
-import { SpecificMovieComponent } from './selectedmovie.component';
+// import { SpecificMovieComponent } from './selectedmovie.component';
 //import {ViewSearch} from './viewsearch.component';
 import 'hammerjs';
 import { SpecificmovieComponent } from './specificmovie/specificmovie.component';
-
+import { SimilarmoviesComponent } from './similarmovies/similarmovies.component';
+//import { SimilarMoviesComponent } from './similarmovies/similarmovies.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, DashboardComponent, SearchComponent, SpecificMovieComponent, SpecificmovieComponent
+    AppComponent, DashboardComponent, SearchComponent, SpecificmovieComponent, SimilarmoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +47,13 @@ import { SpecificmovieComponent } from './specificmovie/specificmovie.component'
           },{
               path: 'search/:movieid',
               component: SpecificmovieComponent
+          },{
+              path: 'search/similar/:movieid',
+              component: SimilarmoviesComponent
           }
       ])  
   ],
-  providers: [MoviesService,SearchComponent,SpecificMovieComponent],
+  providers: [MoviesService,SearchComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
