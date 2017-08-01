@@ -11,10 +11,10 @@
      [infiniteScrollDistance]="1"
      [infiniteScrollThrottle]="400"
      (scrolled)="onScroll()">
-  <div *ngIf="this.arr.length!=0">
+  <div *ngIf="arr.length>0">
     <div fxFlex="96%" fxLayoutGap="2%"  fx-flex-fill fxLayoutWrap  >
       <!-- <md-card> -->
-        <div fxFlex="31%" fx-flex-fill *ngFor='let movie of this.arr'>
+        <div fxFlex="31%" fx-flex-fill *ngFor='let movie of arr'>
           <md-card>
             <md-card-content>
               <img [src]="'http://image.tmdb.org/t/p/w300'+movie.poster_path" alt='http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg' >

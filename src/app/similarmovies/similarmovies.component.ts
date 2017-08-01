@@ -15,6 +15,7 @@ export class SimilarmoviesComponent implements OnInit {
 	arr=[];
 	page: number;
 	total_pages:number;
+  id_movie:any;
   constructor(private movieservice: SimilarMoviesService,
 		private router: Router,
 		private activeroute: ActivatedRoute) { }
@@ -22,7 +23,8 @@ export class SimilarmoviesComponent implements OnInit {
   ngOnInit() {
   	this.page = 1;
   	let movieid=  this.activeroute.snapshot.params['movieid'];
-		this.movieservice.getSimilarMovies(movieid).subscribe((movieDetails)=>{
+    this.id_movie = movieid;
+		this.movieservice.getSimilarMovies(movieid,this.page).subscribe((movieDetails)=>{
 			this.total_pages=movieDetails.total_pages;
 			this.arr=(movieDetails.results);
 			console.log('from similar movie arr',this.arr[0]);
@@ -31,11 +33,11 @@ export class SimilarmoviesComponent implements OnInit {
 			this.flag=1;
 		});
   }
- /* onScroll() {
+  onScroll() {
    	if(this.page <= this.total_pages){
-        		console.log("from onscroll",this.moviename)
+        		//console.log("from onscroll",this.moviename)
         		
-            return this.movieservice.getSimilarMovies(this.moviename, ++this.pager).subscribe(data => {
+            return this.movieservice.getSimilarMovies(this.id_movie, ++this.page).subscribe(data => {
                   
                     data.results.forEach((d)=>{this.arr.push(d)})
                 
@@ -43,7 +45,7 @@ export class SimilarmoviesComponent implements OnInit {
           }
         
 
-    }*/
+    }
     specificmovie(movieid){
 
        console.log('Got Movie Id in specificmovie on search.component.ts ',movieid);

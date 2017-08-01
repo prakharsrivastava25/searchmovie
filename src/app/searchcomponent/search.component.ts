@@ -26,10 +26,12 @@ export class SearchComponent {
 				console.log("data.results is",data.results);
 				console.log("data.total_pages is",data.total_pages);
 				this.total_pages=data.total_pages;
-				data.results.forEach((d)=>{
-					this.arr.push(d);
-				})
-				this.arr.push(data.results);
+				// data.results.forEach((d)=>{
+				// 	this.arr.push(d);
+				// })
+				// this.arr.push(data.results);
+				this.arr=data.results;
+				console.log('result is ',this.arr);
 			//	this.views.movieloaded();
 			//console.log("array length",this.arr.length);
 				//console.log("array",this.arr[0]);
