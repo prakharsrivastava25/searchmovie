@@ -1,12 +1,18 @@
-nav {
-    position: absolute;
-    right: 50px;
-}
-a{
-	color: orange;
-}
-#main
-{
-	background-color: #673AB7;
+/*nav {
+  position: absolute;
+  right: 50px;
 }
 
+a {
+  color: orange;
+}
+
+#main {
+  background-color: #673AB7;
+}
+*/
+a{
+	text-decoration:none;
+  font-family: Roboto, sans-serif;
+  color: white;
+}

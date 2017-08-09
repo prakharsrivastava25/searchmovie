@@ -1,23 +1,42 @@
 <!-- <root> -->
-<div >
-<div id="searchblock" >
-  <h1>Search Movie</h1>
-  <input placeholder="Enter Movie Name Here" type="text" [(ngModel)]="name" />
-  <button (click)='searchmovie(name)'>Search</button>
-  <p>you are typing this in search bar: {{name}}</p>
+<div>
+<!--   <div id="searchblock">
+    <h1>Search Movie</h1>
+    <input placeholder="Enter Movie Name Here" type="text" [(ngModel)]="name" />
+    <button (click)='searchmovie(name)'>Search</button>
+    <p>you are typing this in search bar: {{name}}</p>
+  </div> -->
+<md-card fxLayoutAlign="center">
+  <div fxFlex="30%"   >
+    <md-input-container fxFlex="60%" fxLayoutAlign="start" >
+      <input mdInput placeholder="Enter Movie Name Here"  dividerColor="accent" [(ngModel)]="name" (keyup.enter)='searchmovie(name)' />
+    </md-input-container>
+    <div fxFlex="20%" fxLayoutAlign="start center">
+      <button md-mini-fab color="primary"  (click)='searchmovie(name) '>
+        <md-icon>send</md-icon>
+      </button>
+    </div>
+  </div>  
+
+</md-card>
+<!-- Signal value:{{signal}}
+<div *ngIf="signal" >
+  Hello got inside div
+</div> -->
+<div *ngIf="signal" >
+  <div fxLayoutAlign="center">
+    Total Results Found:{{total_results}}
+  </div>
 </div>
-<br>
-<div fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="30px" infiniteScroll
-     [infiniteScrollDistance]="1"
-     [infiniteScrollThrottle]="400"
-     (scrolled)="onScroll()">
-  <div *ngIf="arr.length>0">
-    <div fxFlex="96%" fxLayoutGap="2%"  fx-flex-fill fxLayoutWrap  >
-      <!-- <md-card> -->
+
+  <div fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="30px" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="400" (scrolled)="onScroll()" class="results">
+    <div *ngIf="arr.length>0">
+      <div fxFlex="96%" fxLayoutGap="2%" fx-flex-fill fxLayoutWrap>
+        <!-- <md-card> -->
         <div fxFlex="31%" fx-flex-fill *ngFor='let movie of arr'>
-          <md-card>
+          <md-card class="card">
             <md-card-content>
-              <img [src]="'http://image.tmdb.org/t/p/w300'+movie.poster_path" alt='http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg' >
+              <img md-card-image [src]="'http://image.tmdb.org/t/p/w500'+movie.poster_path" alt='image not found'>
               <p md-line>Title: {{movie.title}}</p>
               <p md-line>Overview: {{movie.overview}}</p>
               <p md-line>Rating: {{movie.vote_average}}</p>
@@ -26,12 +45,13 @@
             </md-card-content>
           </md-card>
         </div>
-      <!-- </md-card> -->
+        <!-- </md-card> -->
+      </div>
     </div>
+    <!-- <div *ngIf="movie.total_results===0" >
+      <p>No Result Found</p>
+    </div> -->
   </div>
-</div>
-
-
   <!-- <div *ngIf="this.arr > 0"> -->
   <!-- <ul *ngFor="let movie of this.arr">
   <li>{{movie.page}}</li>
@@ -102,5 +122,5 @@
       </md-list>
     </md-card-content>
   </div> -->
-<!-- </root> -->
+  <!-- </root> -->
 </div>

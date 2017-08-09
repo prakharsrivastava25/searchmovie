@@ -1,21 +1,21 @@
-<div fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="30px" infiniteScroll
-     [infiniteScrollDistance]="1"
-     [infiniteScrollThrottle]="400"
-     (scrolled)="onScroll()">
+<div fxLayoutAlign="center">
+    Total Results Found:{{total_results}}
+  </div>
+<div fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="30px" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="400" (scrolled)="onScroll()">
   <!-- <div *ngIf="this.arr.length!=0"> -->
-    <div fxFlex="96%" fxLayoutGap="2%"  fx-flex-fill fxLayoutWrap  >
-        <div fxFlex="31%" fx-flex-fill *ngFor='let movie of this.arr'>
-          <md-card>
-            <md-card-content>
-              <img [src]="'http://image.tmdb.org/t/p/w300'+movie.poster_path" alt='http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg' >
-              <p md-line>Title: {{movie.title}}</p>
-              <p md-line>Overview: {{movie.overview}}</p>
-              <p md-line>Rating: {{movie.vote_average}}</p>
-              <p md-line>Release Date: {{movie.release_date}}</p>
-              <button md-raised-button (click)="specificmovie(movie.id)">Movie Details</button>
-            </md-card-content>
-          </md-card>
-        </div>
-      </div>
+  <div fxFlex="96%" fxLayoutGap="2%" fx-flex-fill fxLayoutWrap>
+    <div fxFlex="31%" fx-flex-fill *ngFor='let movie of this.arr'>
+      <md-card>
+        <md-card-content>
+          <img md-card-image [src]="'http://image.tmdb.org/t/p/w500'+movie.poster_path" alt='http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg'>
+          <p md-line>Title: {{movie.title}}</p>
+          <p md-line>Overview: {{movie.overview}}</p>
+          <p md-line>Rating: {{movie.vote_average}}</p>
+          <p md-line>Release Date: {{movie.release_date}}</p>
+          <button md-raised-button (click)="specificmovie(movie.id)">Movie Details</button>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
   <!-- </div> -->
 </div>

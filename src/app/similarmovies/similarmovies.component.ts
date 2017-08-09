@@ -16,6 +16,8 @@ export class SimilarmoviesComponent implements OnInit {
 	page: number;
 	total_pages:number;
   id_movie:any;
+  total_results:number;
+  signal = false;
   constructor(private movieservice: SimilarMoviesService,
 		private router: Router,
 		private activeroute: ActivatedRoute) { }
@@ -27,10 +29,14 @@ export class SimilarmoviesComponent implements OnInit {
 		this.movieservice.getSimilarMovies(movieid,this.page).subscribe((movieDetails)=>{
 			this.total_pages=movieDetails.total_pages;
 			this.arr=(movieDetails.results);
+      this.total_results=movieDetails.total_results;
 			console.log('from similar movie arr',this.arr[0]);
 /*			this.movie(movieDetails);
 			console.log('from similar movie',this.movie);*/
 			this.flag=1;
+      if(this.arr.length>0){
+          this.signal=true;
+        }
 		});
   }
   onScroll() {

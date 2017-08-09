@@ -10,6 +10,7 @@ import { MoviesService } from './movies.service';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboardcomponent/dashboard.component';
 import { SearchComponent } from './searchcomponent/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { SpecificMovieComponent } from './selectedmovie.component';
 //import {ViewSearch} from './viewsearch.component';
 import 'hammerjs';
@@ -30,6 +31,7 @@ import { SimilarmoviesComponent } from './similarmovies/similarmovies.component'
     InfiniteScrollModule,
     MaterialModule,
     FlexLayoutModule,
+    BrowserAnimationsModule,
  //   InfiniteScrollModule,
     RouterModule.forRoot([
           {

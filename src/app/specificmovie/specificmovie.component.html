@@ -4,10 +4,10 @@
       <md-card>
         <md-card-content>
           <img [src]="'http://image.tmdb.org/t/p/w300'+movie.poster_path" />
-          <p md-line>Tile: {{movie.original_title}}</p>
+          <p md-line>Title: {{movie.original_title}}</p>
           <p md-line>Budget: {{movie.budget}}</p>
           <p md-line>Genres:</p>
-          <ul *ngFor='let genre of movie.genres'>
+          <ul *ngFor='let genre of movie.genres' id="genre">
             <li>{{genre.name}}</li>
           </ul>
           <p md-line>Votes: {{movie.vote_count}}</p>
@@ -18,7 +18,6 @@
     </div>
   </div>
 </div>
-
 <!-- <app-specificmovie> -->
 <!--   <div *ngIf='flag===1' >
     <h2 class="title">Specific Movie Details</h2>
@@ -43,5 +42,4 @@
       </md-list>
     </md-card-content>
   </div> -->
-
 <!-- </app-specificmovie> -->

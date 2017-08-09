@@ -1,11 +1,26 @@
-<div id="main">
+<!-- <div id="main">
   <nav>
     <a class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Homepage</a>
-    <a class="btn btn-primary" routerLink="/dashboard/search" routerLinkActive="active">Search</a>
+    <a class="btn btn-primary" routerLink="/dashboard/search" routerLinkActive="active">Search<md-icon>search</md-icon></a>
   </nav>
   <h1>Welcome</h1>
-</div>
+</div> -->
+<md-toolbar color="primary">
+  <nav><a class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active" fxFlex="75%" fxLayoutAlign="start center">Homepage</a></nav>
+  <span>Movie Encyclopedia</span>
+  <span>
+
+ <nav>
+  <a class="btn btn-primary" routerLink="/dashboard/search" routerLinkActive="active" fxFlex="60%"> Search<md-icon fxFlex="20%" fxLayoutGap="2%">search</md-icon></a>
+</nav>
+
+
+  </span>
+</md-toolbar>
+
+
 <router-outlet></router-outlet>
+
 <!-- <nav md-tab-nav-bar>
     <a md-tab-link routerLink="/dashboard" routerLinkActive="active">Homepage</a>
     <a md-tab-link routerLink="/dashboard/search" routerLinkActive="active">Search</a>

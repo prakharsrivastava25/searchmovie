@@ -1,13 +1,20 @@
-#searchblock{
-	text-align: center;
-background-image: url("https://image.freepik.com/free-vector/nature-background-of-a-grassy-landscape_1048-1305.jpg");
+#searchblock {
+  text-align: center;
+  background-image: url("https://image.freepik.com/free-vector/nature-background-of-a-grassy-landscape_1048-1305.jpg");
+}
 
-}
 background-image {
-    opacity: 0.5;
-    
+  opacity: 0.5;
 }
+/*.results
+{
+	background-image: url("https://ak3.picdn.net/shutterstock/videos/12448901/thumb/1.jpg");
+}
+.card{
+	background-image: "none";
+}
+*/
+
 /*img{
-	max-height: 450px;
-	max-width: 200px;
+	max-height: 75%;
 }*/

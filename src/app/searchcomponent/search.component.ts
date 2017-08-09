@@ -15,6 +15,8 @@ export class SearchComponent {
 	moviename: string;
 	moviedata: any;
 	total_pages:number;
+	total_results:number;
+	signal = false;
 		constructor(private obj:MoviesService,private route:Router/*,private views:ViewSearch*/){}
 		
 		searchmovie(movie){
@@ -26,6 +28,7 @@ export class SearchComponent {
 				console.log("data.results is",data.results);
 				console.log("data.total_pages is",data.total_pages);
 				this.total_pages=data.total_pages;
+				this.total_results=data.total_results;
 				// data.results.forEach((d)=>{
 				// 	this.arr.push(d);
 				// })
@@ -36,6 +39,9 @@ export class SearchComponent {
 			//console.log("array length",this.arr.length);
 				//console.log("array",this.arr[0]);
 //				this.route.navigate(['view']);//pathview
+				if(this.arr.length>0){
+					this.signal=true;
+				}
 			}
 
 				)
